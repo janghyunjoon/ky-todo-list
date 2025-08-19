@@ -1,13 +1,28 @@
-import React from 'react'
-import './TodoEditor.css';
+import React, { useState } from 'react'
+import "./TodoEditor.css"
+const TodoEditor = ({ onCreate }) => {
+  const [text, setText] = useState("")
 
-const TodoEditor = (params) => {
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    if (!text.trim()) return
+
+    onCreate(text.trim())
+    setText("")
+
+  }
   return (
-    <form className="Editor">
-      <input placeholder="새로운 Todo..." />
-      <button>추가</button>
+    <form className='TodoEditor' onSubmit={onSubmit}>
+      <input
+        type="text"
+        placeholder='새로운 Todo...'
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button type='submit' disabled={!text.trim()}>추가</button>
     </form>
-  );
-};
+  )
+}
 
-export default TodoEditor;
+export default TodoEditor
