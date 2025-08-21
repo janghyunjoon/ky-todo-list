@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+
 const todoSchema = new mongoose.Schema(
     {
         text:{
@@ -13,13 +14,11 @@ const todoSchema = new mongoose.Schema(
         date:{
             type:Date,
             default:Date.now
-             }
-        },
-    
+        }
+    },
     {timestamps:true}
-   
 )
 
-const Todo = mongoose.model("Todo",todoSchema)
+const Todo =mongoose.model("Todo",todoSchema)
 
 module.exports=Todo
