@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import './TodoList.css'
-import TodoItem from './Todoutem'
+import TodoItem from './Todoitem'
 const TodoList = ({ todos, onDelete, onUpdateChecked, onUpdateTodo }) => {
 
   const [q, setQ] = useState('')
